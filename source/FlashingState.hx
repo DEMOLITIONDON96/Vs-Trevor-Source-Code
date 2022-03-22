@@ -23,16 +23,32 @@ class FlashingState extends MusicBeatState
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(bg);
 
-		warnText = new FlxText(0, 0, FlxG.width,
-			"Hey, watch out!\n
-			This Mod contains some flashing lights!\n
-			Press ENTER to disable them now or go to Options Menu.\n
-			Press ESCAPE to ignore this message.\n
-			You've been warned!",
-			32);
-		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
-		warnText.screenCenter(Y);
+		warnText = new FlxText(-160, 50, FlxG.width,
+			"GREETINGS PLAYER:\n
+			FOR LEGAL REASONS, This mod contains the following items,\n
+			Flesh, Blood,Flashing lights, Jumpscares in mechanics, mentions of adult stuff etc.\n
+                        If you can get scared/have senetive eyes, we suggest\n
+                        To keep all players safe turn off these 3 following in the option menu.\n
+                        Flashing Lights\n
+                        Enable Mechanics\n
+                        Groosom Dialouge\n
+                        Thanky you and enjoy the mod",
+			0);
+		warnText.setFormat(Paths.font("HelpMe.ttf"), 20, FlxColor.RED, CENTER);
+		//warnText.screenCenter();
 		add(warnText);
+
+		var disclaimText = new FlxText(220, 480, FlxG.width,
+			"DISCLAIMER:\n
+			This Mod also contains some hard gameplay,\n
+			along with a bit of gore in some visuals!\n
+                        But working of collaboration with the wulsy mod and the denso mod\n
+                        Their maybe lots and lots of gore and senetive text in dialouge
+			You've been warned!",
+			44);
+		disclaimText.setFormat(Paths.font("HelpMe.ttf"), 20, FlxColor.RED, CENTER);
+		//disclaimText.screenCenter(X);
+		add(disclaimText);
 	}
 
 	override function update(elapsed:Float)

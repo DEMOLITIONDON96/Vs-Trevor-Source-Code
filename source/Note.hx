@@ -80,6 +80,9 @@ class Note extends FlxSprite
 	public var hitCausesMiss:Bool = false;
 	public var distance:Float = 2000; //plan on doing scroll directions soon -bb
 
+	var hasNoteType:Bool = false;
+	var antialias:Bool = true;
+	var skin:String;
 	public var hitsoundDisabled:Bool = false;
 
 	private function set_texture(value:String):String {
@@ -88,6 +91,7 @@ class Note extends FlxSprite
 		}
 		texture = value;
 		return value;
+		hasNoteType = true;
 	}
 
 	private function set_noteType(value:String):String {
@@ -98,6 +102,38 @@ class Note extends FlxSprite
 
 		if(noteData > -1 && noteType != value) {
 			switch(value) {
+				case 'Trickster Note':
+					ignoreNote = mustPress;
+					hitCausesMiss = true;
+					reloadNote('TRICKSTER');
+					noteSplashTexture = 'TRICKSTERnoteSplashes';
+					colorSwap.hue = 0;
+					colorSwap.saturation = 0;
+					colorSwap.brightness = 0;
+				case 'Shadow Note':
+					ignoreNote = mustPress;
+					hitCausesMiss = true;
+					reloadNote('SHADOW');
+					noteSplashTexture = 'SHADOWnoteSplashes';
+					colorSwap.hue = 0;
+					colorSwap.saturation = 0;
+					colorSwap.brightness = 0;
+				case 'Hat Note':
+					ignoreNote = mustPress;
+					hitCausesMiss = true;
+					reloadNote('HAT');
+					noteSplashTexture = 'HATnoteSplashes';
+					colorSwap.hue = 0;
+					colorSwap.saturation = 0;
+					colorSwap.brightness = 0;
+				case 'Poison Note':
+					ignoreNote = mustPress;
+					hitCausesMiss = true;
+					reloadNote('POISON');
+					noteSplashTexture = 'POISONnoteSplashes';
+					colorSwap.hue = 0;
+					colorSwap.saturation = 0;
+					colorSwap.brightness = 0;
 				case 'Hurt Note':
 					ignoreNote = mustPress;
 					reloadNote('HURT');
@@ -115,6 +151,8 @@ class Note extends FlxSprite
 					noAnimation = true;
 				case 'GF Sing':
 					gfNote = true;
+				default:
+					hasNoteType = false;
 			}
 			noteType = value;
 		}
@@ -124,7 +162,7 @@ class Note extends FlxSprite
 		return value;
 	}
 
-	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false)
+	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false, char:String = 'bf')
 	{
 		super();
 
@@ -135,6 +173,23 @@ class Note extends FlxSprite
 		isSustainNote = sustainNote;
 		this.inEditor = inEditor;
 
+		antialias = ClientPrefs.globalAntialiasing;
+
+		switch(char.toLowerCase())
+		{
+			case 'dad':
+				skin = 'epicUI/DADNOTE_assets';
+				antialias = true; //if ur note texture is pixel set this to false, otherwise delete this line
+			case 'gf' | 'bepixelgf':
+				skin = 'epicUI/gfNOTE_assets';
+				antialias = true;
+			case 'scare':
+				skin = 'epicUI/TopTier69NOTE_assets';
+				antialias = true;
+			case 'fear':
+				skin = 'epicUI/FearNOTE_assets';
+				antialias = true;
+		}
 		x += (ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
 		y -= 2000;
@@ -167,6 +222,8 @@ class Note extends FlxSprite
 		}
 
 		// trace(prevNote);
+		if(!hasNoteType)
+			texture = skin;
 
 		if (isSustainNote && prevNote != null)
 		{

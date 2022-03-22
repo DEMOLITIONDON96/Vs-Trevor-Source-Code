@@ -13,6 +13,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import lime.utils.Assets;
 import flixel.system.FlxSound;
@@ -47,8 +48,11 @@ class FreeplayState extends MusicBeatState
 	private var iconArray:Array<HealthIcon> = [];
 
 	var bg:FlxSprite;
+	var eerie:FlxSprite;
+	var e:FlxSprite;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
+	public var camZooming:Bool = false;
 
 	override function create()
 	{
@@ -101,10 +105,15 @@ class FreeplayState extends MusicBeatState
 			}
 		}*/
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new FlxSprite(-80);
+		bg.frames = Paths.getSparrowAtlas('SpookyMenu_Assets/Freeplay_Assets/menuBGFreeplayDesat');
+		bg.scrollFactor.set(0, 0);
+		bg.screenCenter();
+		bg.animation.addByPrefix('bgMovers', 'idle', 9, true);
+		bg.animation.play('bgMovers');
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
-		bg.screenCenter();
+		//bg.screenCenter();
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
@@ -142,6 +151,18 @@ class FreeplayState extends MusicBeatState
 			// songText.screenCenter(X);
 		}
 		WeekData.setDirectoryFromWeek();
+
+		eerie = new FlxSprite(-80);
+		eerie.frames = Paths.getSparrowAtlas('SpookyMenu_Assets/Freeplay_Assets/eerie');
+		eerie.scrollFactor.set(0, 0);
+		eerie.updateHitbox();
+		eerie.screenCenter();
+		eerie.animation.addByPrefix('mango', 'spoopy', 9, true);
+		eerie.animation.play('mango');
+		FlxTween.tween(eerie, {alpha: eerie.alpha = 0}, 1.2, {ease: FlxEase.quadInOut, type: LOOPING});
+		eerie.alpha = 0.63;
+		eerie.antialiasing = ClientPrefs.globalAntialiasing;
+		add(eerie);
 
 		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
@@ -203,6 +224,13 @@ class FreeplayState extends MusicBeatState
 		text.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, RIGHT);
 		text.scrollFactor.set();
 		add(text);
+
+		e = new FlxSprite().loadGraphic(Paths.image('SpookyMenu_Assets/Freeplay_Assets/FreeplayVignettePulse'));
+		e.antialiasing = ClientPrefs.globalAntialiasing;
+		FlxTween.tween(e, {alpha: e.alpha = 0}, 1.2, {ease: FlxEase.quadInOut, type: LOOPING});
+		e.alpha = 1;
+		add(e);
+
 		super.create();
 	}
 
@@ -380,6 +408,7 @@ class FreeplayState extends MusicBeatState
 				LoadingState.loadAndSwitchState(new ChartingState());
 			}else{
 				LoadingState.loadAndSwitchState(new PlayState());
+				FlxG.mouse.visible = false;
 			}
 
 			FlxG.sound.music.volume = 0;
@@ -393,6 +422,17 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 		super.update(elapsed);
+	}
+	
+			override function beatHit()
+	{
+		super.beatHit();
+			if(ClientPrefs.camZooms) {
+        FlxG.camera.zoom += 0.015;
+		if(!camZooming) { //Copied from PlayState.hx
+			FlxTween.tween(FlxG.camera, {zoom: 1}, 0.5);
+		}
+	}
 	}
 
 	public static function destroyFreeplayVocals() {
