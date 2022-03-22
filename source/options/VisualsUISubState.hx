@@ -56,6 +56,13 @@ class VisualsUISubState extends BaseOptionsMenu
 			['Time Left', 'Time Elapsed', 'Song Name', 'Disabled']);
 		addOption(option);
 
+		var option:Option = new Option('Camera Movement',
+			"If checked, camera moves to the corresponding arrow!",
+			'camMove',
+			'bool',
+			true);
+		addOption(option);
+
 		var option:Option = new Option('Flashing Lights',
 			"Uncheck this if you're sensitive to flashing lights!",
 			'flashing',
@@ -103,8 +110,8 @@ class VisualsUISubState extends BaseOptionsMenu
 			"What song do you prefer for the Pause Screen?",
 			'pauseMusic',
 			'string',
-			'Tea Time',
-			['None', 'Breakfast', 'Tea Time']);
+			'Fearcrafice',
+			['None', 'Fearcrafice', 'Breakfast', 'Tea Time', 'He is Watching', 'Frubtanic Ritual']);
 		addOption(option);
 		option.onChange = onChangePauseMusic;
 
@@ -124,7 +131,7 @@ class VisualsUISubState extends BaseOptionsMenu
 
 	override function destroy()
 	{
-		if(changedMusic) FlxG.sound.playMusic(Paths.music('freakyMenu'));
+		if(changedMusic) FlxG.sound.playMusic(Paths.music('EnterTheGraveyard'));
 		super.destroy();
 	}
 

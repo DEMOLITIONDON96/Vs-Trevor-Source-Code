@@ -70,6 +70,36 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			false);
 		addOption(option);
 
+		var option:Option = new Option('Enable Lane Underlay', //Stolen from DAB
+		'Check for a underlay behind the notes',
+		'laneunderlay',
+		'bool',
+		true);
+		addOption(option);
+		
+		var option:Option = new Option('Lane Underlay',
+		'Set lane underlay (Lane underlay must be enabled)',
+		'laneTransparency',
+		'float',
+		0);
+		option.minValue = 0;
+		option.maxValue = 1;
+		option.changeValue = 0.1;
+		addOption(option);
+
+		var option:Option = new Option('Debug Mode',
+		'If checked, you can do cool stuff on a song',
+		'debugMode',
+		false);
+		addOption(option);
+
+		var option:Option = new Option('Marvelouses Rating',
+		'If checked, marvelouses rating will appear on the\nJudgment counter and will show\n when hit',
+		'marvelouses',
+		'bool',
+		true); //Default value
+		addOption(option);
+
 		var option:Option = new Option('Hitsound Volume',
 			'Funny notes does \"Tick!\" when you hit them."',
 			'hitsoundVolume',
