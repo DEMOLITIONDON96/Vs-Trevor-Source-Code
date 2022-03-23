@@ -80,9 +80,11 @@ class Note extends FlxSprite
 	public var hitCausesMiss:Bool = false;
 	public var distance:Float = 2000; //plan on doing scroll directions soon -bb
 
-	//var hasNoteType:Bool = false;
-	//var antialias:Bool = true;
-	//var skin:String;
+	//Note Skins
+	var hasNoteType:Bool = false;
+	var antialias:Bool = true;
+	var skin:String;
+	
 	public var hitsoundDisabled:Bool = false;
 
 	private function set_texture(value:String):String {
@@ -91,7 +93,7 @@ class Note extends FlxSprite
 		}
 		texture = value;
 		return value;
-		//hasNoteType = true;
+		hasNoteType = true;
 	}
 
 	private function set_noteType(value:String):String {
@@ -152,8 +154,8 @@ class Note extends FlxSprite
 					noAnimation = true;
 				case 'GF Sing':
 					gfNote = true;
-				//default:
-					//hasNoteType = false;
+				default:
+					hasNoteType = false;
 			}
 			noteType = value;
 		}
@@ -163,7 +165,7 @@ class Note extends FlxSprite
 		return value;
 	}
 
-	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false) //char:String = 'bf')
+	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false, char:String = 'bf')
 	{
 		super();
 
@@ -174,23 +176,14 @@ class Note extends FlxSprite
 		isSustainNote = sustainNote;
 		this.inEditor = inEditor;
 
-		/*antialias = ClientPrefs.globalAntialiasing;
+		antialias = ClientPrefs.globalAntialiasing;
 
 		switch(char.toLowerCase())
 		{
-			case 'dad':
-				skin = 'epicUI/DADNOTE_assets';
+			case 'trevor':
+				skin = 'Skins/trevorNOTE_assets';
 				antialias = true; //if ur note texture is pixel set this to false, otherwise delete this line
-			case 'gf' | 'bepixelgf':
-				skin = 'epicUI/gfNOTE_assets';
-				antialias = true;
-			case 'scare':
-				skin = 'epicUI/TopTier69NOTE_assets';
-				antialias = true;
-			case 'fear':
-				skin = 'epicUI/FearNOTE_assets';
-				antialias = true;
-		}*/
+		}
 		//saving it :)
 		x += (ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
@@ -224,8 +217,8 @@ class Note extends FlxSprite
 		}
 
 		// trace(prevNote);
-		//if(!hasNoteType)
-			//texture = skin;
+		if(!hasNoteType)
+			texture = skin;
 
 		if (isSustainNote && prevNote != null)
 		{
