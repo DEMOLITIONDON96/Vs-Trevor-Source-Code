@@ -2026,15 +2026,14 @@ class PlayState extends MusicBeatState
 					oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 				else
 					oldNote = null;
-				/*var char:String;
+				//Note Skin Code
+				var char:String;
 				if(gottaHitNote)
 					char = SONG.player1;
 				else
-					char = SONG.player2;*/
-				//false, false, char (DON'T DELETE THIS, THIS IS IMPORTANT FOR LATER)
-				//note skins later on B)
+					char = SONG.player2;
 
-				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
+				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote, false, false, char);
 				swagNote.mustPress = gottaHitNote;
 				swagNote.sustainLength = songNotes[2];
 				swagNote.gfNote = (section.gfSection && (songNotes[1]<4));
@@ -2053,14 +2052,14 @@ class PlayState extends MusicBeatState
 					for (susNote in 0...floorSus+1)
 					{
 						oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
-						/*var char:String;
+						//Note Skin Code
+						var char:String;
 						if(gottaHitNote)
 							char = SONG.player1;
 						else
-							char = SONG.player2;*/
-						//false, char (DON'T DELETE THIS, THIS IS IMPORTANT FOR LATER)
+							char = SONG.player2;
 
-						var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + (Conductor.stepCrochet / FlxMath.roundDecimal(songSpeed, 2)), daNoteData, oldNote, true);
+						var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + (Conductor.stepCrochet / FlxMath.roundDecimal(songSpeed, 2)), daNoteData, oldNote, true, false, char);
 						sustainNote.mustPress = gottaHitNote;
 						sustainNote.gfNote = (section.gfSection && (songNotes[1]<4));
 						sustainNote.noteType = swagNote.noteType;
@@ -2183,14 +2182,14 @@ class PlayState extends MusicBeatState
 			// FlxG.log.add(i);
 			var targetAlpha:Float = 1;
 			if (player < 1 && ClientPrefs.middleScroll) targetAlpha = 0.35;
-			/*var char:String;
+			//Note Skin Code
+			var char:String;
 			if(player == 1)
 				char = SONG.player1;
 			else
-				char = SONG.player2;*/
-			//char (DON'T DELETE THIS, THIS IS IMPORTANT FOR LATER)
+				char = SONG.player2;
 
-			var babyArrow:StrumNote = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
+			var babyArrow:StrumNote = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player, char);
 			babyArrow.downScroll = ClientPrefs.downScroll;
 			if (!isStoryMode && !skipArrowStartTween)
 			{
