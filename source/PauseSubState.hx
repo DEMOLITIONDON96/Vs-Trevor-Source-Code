@@ -90,7 +90,7 @@ class PauseSubState extends MusicBeatSubstate
 		switch(PlayState.SONG.song)
 		{
 			case 'Blueshirt':
-			composer = 'By Mr. Noob'
+			composer = 'By Mr. Noob';
 		}
 		composerCredit.text += composer;
 		composerCredit.scrollFactor.set();

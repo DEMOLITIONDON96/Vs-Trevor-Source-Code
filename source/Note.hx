@@ -224,8 +224,8 @@ class Note extends FlxSprite
 		}
 
 		// trace(prevNote);
-		if(!hasNoteType)
-			texture = skin;
+		//if(!hasNoteType)
+			//texture = skin;
 
 		if (isSustainNote && prevNote != null)
 		{

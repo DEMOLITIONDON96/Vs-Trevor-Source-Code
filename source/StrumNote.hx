@@ -13,7 +13,7 @@ class StrumNote extends FlxSprite
 	private var noteData:Int = 0;
 	public var direction:Float = 90;//plan on doing scroll directions soon -bb
 	public var downScroll:Bool = false;//plan on doing scroll directions soon -bb
-	//public var sustainReduce:Bool = true;
+	public var sustainReduce:Bool = true;
 	//public var doAntialiasing:Bool = ClientPrefs.globalAntialiasing;
 	//Note Skins later????
 	
