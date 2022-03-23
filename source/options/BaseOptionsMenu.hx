@@ -55,13 +55,9 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		DiscordClient.changePresence(rpcTitle, null);
 		#end
 		
-		var bg:FlxSprite = new FlxSprite(-80);
-		bg.frames = Paths.getSparrowAtlas('SpookyMenu_Assets/Options_Assets/menuBG_options');
-		bg.scrollFactor.set(0, 0);
-		bg.updateHitbox();
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg.color = 0xFFea71fd;
 		bg.screenCenter();
-		bg.animation.addByPrefix('bgMovers', 'idle', 9, true);
-		bg.animation.play('bgMovers');
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
@@ -74,20 +70,6 @@ class BaseOptionsMenu extends MusicBeatSubstate
 
 		checkboxGroup = new FlxTypedGroup<CheckboxThingie>();
 		add(checkboxGroup);
-
-		var shadow:FlxSprite = new FlxSprite().loadGraphic(Paths.image('SpookyMenu_Assets/Options_Assets/SettingsShadowOverlay'));
-		shadow.updateHitbox();
-		shadow.screenCenter();
-		shadow.antialiasing = ClientPrefs.globalAntialiasing;
-		add(shadow);
-
-		var pulse:FlxSprite = new FlxSprite().loadGraphic(Paths.image('SpookyMenu_Assets/Options_Assets/SettingsVignettePulse'));
-		pulse.updateHitbox();
-		pulse.screenCenter();
-		FlxTween.tween(pulse, {alpha: pulse.alpha = 0}, 1.2, {ease: FlxEase.quadInOut, type: LOOPING});
-		pulse.alpha = 1;
-		pulse.antialiasing = ClientPrefs.globalAntialiasing;
-		add(pulse);
 
 		descBox = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
 		descBox.alpha = 0.6;

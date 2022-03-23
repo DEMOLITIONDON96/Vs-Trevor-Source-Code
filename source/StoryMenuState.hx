@@ -34,10 +34,11 @@ class StoryMenuState extends MusicBeatState
 
 	var txtWeekTitle:FlxText;
 	var bgSprite:FlxSprite;
-	var vignette:FlxSprite;
-	var overlay:FlxSprite;
-	var teethTop:FlxSprite;
-	var teethBottom:FlxSprite;
+	//var vignette:FlxSprite;
+	//var overlay:FlxSprite;
+	//var teethTop:FlxSprite;
+	//var teethBottom:FlxSprite;
+	//might reuse these for later on
 
 	private static var curWeek:Int = 0;
 
@@ -79,7 +80,7 @@ class StoryMenuState extends MusicBeatState
 		rankText.size = scoreText.size;
 		rankText.screenCenter(X);
 
-		var ui_tex = Paths.getSparrowAtlas('SpookyMenu_Assets/StoryMenu/CampaignAssets');
+		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
 		bgSprite = new FlxSprite(0, 56);
 		bgSprite.antialiasing = ClientPrefs.globalAntialiasing;
@@ -97,7 +98,7 @@ class StoryMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Story Menu", null);
 		#end
 
 		var num:Int = 0;
@@ -204,7 +205,7 @@ class StoryMenuState extends MusicBeatState
 		changeWeek();
 		changeDifficulty();
 
-		overlay = new FlxSprite().loadGraphic(Paths.image('SpookyMenu_Assets/StoryMenu/StoryMenuOverlay'));
+		/*overlay = new FlxSprite().loadGraphic(Paths.image('SpookyMenu_Assets/StoryMenu/StoryMenuOverlay'));
 		overlay.antialiasing = ClientPrefs.globalAntialiasing;
 		add(overlay);
 		overlay.screenCenter();
@@ -226,7 +227,8 @@ class StoryMenuState extends MusicBeatState
 		vignette.screenCenter();
 
 		FlxTween.tween(teethTop, {y: -270}, 1.2, {ease: FlxEase.quadOut});
-		FlxTween.tween(teethBottom, {y: 450}, 1.2, {ease: FlxEase.quadOut});
+		FlxTween.tween(teethBottom, {y: 450}, 1.2, {ease: FlxEase.quadOut});*/
+		//Again, might reuse this for later
 		
 		super.create();
 	}
@@ -336,10 +338,11 @@ class StoryMenuState extends MusicBeatState
 			{
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 
-				if(ClientPrefs.flashing) FlxG.camera.flash(FlxColor.RED, 0.6);
+				/*if(ClientPrefs.flashing) FlxG.camera.flash(FlxColor.RED, 0.6);
 				FlxTween.tween(vignette, {alpha: 1}, 0.55, {ease: FlxEase.quadOut});
 				FlxTween.tween(teethTop, {y: 0}, 0.5, {ease: FlxEase.bounceOut});
-				FlxTween.tween(teethBottom, {y: 0}, 0.5, {ease: FlxEase.bounceOut});
+				FlxTween.tween(teethBottom, {y: 0}, 0.5, {ease: FlxEase.bounceOut});*/
+				//more shit i might use later
 
 				grpWeekText.members[curWeek].startFlashing();
 

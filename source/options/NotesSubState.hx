@@ -46,13 +46,9 @@ class NotesSubState extends MusicBeatSubstate
 	public function new() {
 		super();
 		
-		bg = new FlxSprite(-80);
-		bg.frames = Paths.getSparrowAtlas('SpookyMenu_Assets/Options_Assets/menuBG_options');
-		bg.scrollFactor.set(0, 0);
-		bg.updateHitbox();
+		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg.color = 0xFFea71fd;
 		bg.screenCenter();
-		bg.animation.addByPrefix('bgMovers', 'idle', 9, true);
-		bg.animation.play('bgMovers');
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 		
@@ -92,20 +88,6 @@ class NotesSubState extends MusicBeatSubstate
 		hsbText = new Alphabet(0, 0, "Hue    Saturation  Brightness", false, false, 0, 0.65);
 		hsbText.x = posX + 240;
 		add(hsbText);
-
-		var shadow:FlxSprite = new FlxSprite().loadGraphic(Paths.image('SpookyMenu_Assets/Options_Assets/SettingsShadowOverlay'));
-		shadow.updateHitbox();
-		shadow.screenCenter();
-		shadow.antialiasing = ClientPrefs.globalAntialiasing;
-		add(shadow);
-
-		var pulse:FlxSprite = new FlxSprite().loadGraphic(Paths.image('SpookyMenu_Assets/Options_Assets/SettingsVignettePulse'));
-		pulse.updateHitbox();
-		pulse.screenCenter();
-		FlxTween.tween(pulse, {alpha: pulse.alpha = 0}, 1.2, {ease: FlxEase.quadInOut, type: LOOPING});
-		pulse.alpha = 1;
-		pulse.antialiasing = ClientPrefs.globalAntialiasing;
-		add(pulse);
 
 		changeSelection();
 	}

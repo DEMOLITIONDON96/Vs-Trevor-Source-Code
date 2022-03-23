@@ -390,12 +390,8 @@ class PlayState extends MusicBeatState
 					curStage = 'mall';
 				case 'winter-horrorland':
 					curStage = 'mallEvil';
-				//case 'deep-below' | 'trauma':
-					//curStage = 'Underground';
-				case 'experiment-001':
-					curStage = 'FrubsVoid';
-				case 'dad-agony':
-					curStage = 'stage';
+				case 'blueshirt':
+					curStage = 'Bridge';
 				case 'senpai' | 'roses':
 					curStage = 'school';
 				case 'thorns':
@@ -629,88 +625,10 @@ class PlayState extends MusicBeatState
 				var evilSnow:BGSprite = new BGSprite('christmas/evilSnow', -200, 700);
 				add(evilSnow);
 
-			case 'Underground': //Mr. Fear
-				//GameOverSubstate.deathSoundName = 'fnf_loss_sfx-fear';
-				//GameOverSubstate.loopSoundName = 'gameOver-fear';
-				//GameOverSubstate.endSoundName = 'gameOverEnd-fear';
-				//GameOverSubstate.characterName = 'bfFear';
-				// Ignore This for now, It'll come to use later
-				
-				if(!ClientPrefs.lowQuality) {
-					var hall:BGSprite = new BGSprite('FEARstage/emptyHall', -1860, -1139, 0.9, 0.9);
-					hall.setGraphicSize(Std.int(hall.width * 0.73), Std.int(hall.height * 0.73));
-					hall.updateHitbox();
-					add(hall);
-				
-					var doorway:BGSprite = new BGSprite('FEARstage/windowBG', -1860, -1139, 0.87, 0.87);
-					doorway.setGraphicSize(Std.int(doorway.width * 0.73), Std.int(doorway.height * 0.73));
-					doorway.updateHitbox();
-					add(doorway);
-				
-					var base:BGSprite = new BGSprite('FEARstage/undergroundBase', -1860, -1139, 1, 1);
-					base.setGraphicSize(Std.int(base.width * 0.73), Std.int(base.height * 0.73));
-					base.updateHitbox();
-					add(base);
-				} else {
-					var low:BGSprite = new BGSprite('FEARstage/undergroundBase-low', -1860, -1139, 1, 1);
-					low.setGraphicSize(Std.int(low.width * 0.73), Std.int(low.height * 0.73));
-					low.updateHitbox();
-					add(low);
-				}  // Did i do it right?
-
-			case 'FrubsVoid': //frub supremacy
-				//GameOverSubstate.deathSoundName = 'fnf_loss_sfx-frub';
-				//GameOverSubstate.loopSoundName = 'gameOver-frub';
-				//GameOverSubstate.endSoundName = 'gameOverEnd-frub';
-				//GameOverSubstate.characterName = 'bfConfused';
-				// Ignore This for now, It'll come to use later
-				
-				if(!ClientPrefs.lowQuality) {
-					var frubsky:BGSprite = new BGSprite('stageshit/skyBG', -690, -290, 0.23, 0.23);
-					frubsky.setGraphicSize(Std.int(frubsky.width * 1), Std.int(frubsky.height * 1));
-					frubsky.updateHitbox();
-					add(frubsky);
-				
-					var planet:BGSprite = new BGSprite('stageshit/planet', -690, -290, 0.45, 0.45);
-					planet.setGraphicSize(Std.int(planet.width * 1), Std.int(planet.height * 1));
-					planet.updateHitbox();
-					add(planet);
-				
-					var hill:BGSprite = new BGSprite('stageshit/BGhill', -760, -360, 0.69, 0.69);
-					hill.setGraphicSize(Std.int(hill.width * 1.1), Std.int(hill.height * 1.1));
-					hill.updateHitbox();
-					add(hill);
-
-					var pillar3:BGSprite = new BGSprite('stageshit/bonePillars3', -690, -290, 0.78, 0.78);
-					pillar3.setGraphicSize(Std.int(pillar3.width * 1), Std.int(pillar3.height * 1));
-					pillar3.updateHitbox();
-					add(pillar3);
-
-					var pillar2:BGSprite = new BGSprite('stageshit/bonePillars2', -690, -290, 0.85, 0.85);
-					pillar2.setGraphicSize(Std.int(pillar2.width * 1), Std.int(pillar2.height * 1));
-					pillar2.updateHitbox();
-					add(pillar2);
-
-					var pillar1:BGSprite = new BGSprite('stageshit/bonePillars1', -690, -290, 0.92, 0.92);
-					pillar1.setGraphicSize(Std.int(pillar1.width * 1), Std.int(pillar1.height * 1));
-					pillar1.updateHitbox();
-					add(pillar1);
-
-					var ground:BGSprite = new BGSprite('stageshit/ground', -860, -460, 1, 1);
-					ground.setGraphicSize(Std.int(ground.width * 1.2), Std.int(ground.height * 1.2));
-					ground.updateHitbox();
-					add(ground);
-				} else {
-					var frublow2:BGSprite = new BGSprite('stageshit/ULTRA4KHD2', -690, -290, 0.75, 0.75);
-					frublow2.setGraphicSize(Std.int(frublow2.width * 1), Std.int(frublow2.height * 1));
-					frublow2.updateHitbox();
-					add(frublow2);
-
-					var frublow1:BGSprite = new BGSprite('stageshit/ULTRA4KHD1', -690, -290, 1, 1);
-					frublow1.setGraphicSize(Std.int(frublow1.width * 1), Std.int(frublow1.height * 1));
-					frublow1.updateHitbox();
-					add(frublow1);
-				}
+			/*case 'Bridge':
+				var map:BGSprite = new BGSprite('funi', 0, 0, 1, 1);
+				add(map);*/
+			//I'm gonna add this later when i get the offsets from Lua
 
 			case 'school': //Week 6 - Senpai, Roses
 				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
@@ -2108,13 +2026,15 @@ class PlayState extends MusicBeatState
 					oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 				else
 					oldNote = null;
-				var char:String;
+				/*var char:String;
 				if(gottaHitNote)
 					char = SONG.player1;
 				else
-					char = SONG.player2;
+					char = SONG.player2;*/
+				//false, false, char (DON'T DELETE THIS, THIS IS IMPORTANT FOR LATER)
+				//note skins later on B)
 
-				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote, false, false, char);
+				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
 				swagNote.mustPress = gottaHitNote;
 				swagNote.sustainLength = songNotes[2];
 				swagNote.gfNote = (section.gfSection && (songNotes[1]<4));
@@ -2133,13 +2053,14 @@ class PlayState extends MusicBeatState
 					for (susNote in 0...floorSus+1)
 					{
 						oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
-						var char:String;
+						/*var char:String;
 						if(gottaHitNote)
 							char = SONG.player1;
 						else
-							char = SONG.player2;
+							char = SONG.player2;*/
+						//false, char (DON'T DELETE THIS, THIS IS IMPORTANT FOR LATER)
 
-						var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + (Conductor.stepCrochet / FlxMath.roundDecimal(songSpeed, 2)), daNoteData, oldNote, true, false, char);
+						var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + (Conductor.stepCrochet / FlxMath.roundDecimal(songSpeed, 2)), daNoteData, oldNote, true);
 						sustainNote.mustPress = gottaHitNote;
 						sustainNote.gfNote = (section.gfSection && (songNotes[1]<4));
 						sustainNote.noteType = swagNote.noteType;
@@ -2262,13 +2183,14 @@ class PlayState extends MusicBeatState
 			// FlxG.log.add(i);
 			var targetAlpha:Float = 1;
 			if (player < 1 && ClientPrefs.middleScroll) targetAlpha = 0.35;
-			var char:String;
+			/*var char:String;
 			if(player == 1)
 				char = SONG.player1;
 			else
-				char = SONG.player2;
+				char = SONG.player2;*/
+			//char (DON'T DELETE THIS, THIS IS IMPORTANT FOR LATER)
 
-			var babyArrow:StrumNote = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player, char);
+			var babyArrow:StrumNote = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
 			babyArrow.downScroll = ClientPrefs.downScroll;
 			if (!isStoryMode && !skipArrowStartTween)
 			{
@@ -3564,7 +3486,7 @@ class PlayState extends MusicBeatState
 
 				if (storyPlaylist.length <= 0)
 				{
-					FlxG.sound.playMusic(Paths.music('EnterTheGraveyard'));
+					FlxG.sound.playMusic(Paths.music('freakyMenu'));
 
 					cancelMusicFadeTween();
 					if(FlxTransitionableState.skipNextTransIn) {
@@ -3635,7 +3557,7 @@ class PlayState extends MusicBeatState
 				}
 				MusicBeatState.switchState(new FreeplayState());
 				FlxG.mouse.visible = true;
-				FlxG.sound.playMusic(Paths.music('EnterTheGraveyard'));
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				changedDifficulty = false;
 			}
 			transitioning = true;
@@ -4267,7 +4189,7 @@ class PlayState extends MusicBeatState
 
 				switch(note.noteType) {
 
-					case 'Shadow Note':
+					/*case 'Shadow Note':
 						var shadow:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('lurkingShadow'));
 						//shadow.screenCenter();
 						shadow.scale.x = 1.1;
@@ -4288,7 +4210,9 @@ class PlayState extends MusicBeatState
 					case 'Poison Note':
 						healthDrain = 0.20
 						
-						;
+						;*/
+					//Might reuse this?????
+
 					case 'Hurt Note': //Hurt note
 						if(boyfriend.animation.getByName('hurt') != null) {
 							boyfriend.playAnim('hurt', true);

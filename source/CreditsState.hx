@@ -83,30 +83,10 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
-			['Graveyard Rush Team'],
-			['DEMOLITIONDON96',		'demolitiondon96',	'Creator of OC & Director \n(Drew All Assets & Artwork of Sprites)',			'https://youtube.com/c/DEMOLITIONDON96',	'03C6FC'],
-			['Bopaku',				'bopaku',			'Charter & Co-Director \n(Gave me ideas that came to life in this mod)',        'nolink',									'78C4FF'],
-			['Wulsy',				'wul',				'Composer of OSTs for this Mod\n(Also did part of HP Script)',					'https://www.youtube.com/c/Wulsy',			'FF000A'],
-			['TrevorAnimates',		'trevor',			'Animator & Created Frub',														'https://youtube.com/c/TrevorAnimates',		'035EFC'],
-			['PrismLight',			'prism',			'Minor Coding \n(and being a critique about the code like he did most of it)',	'https://github.com/PrismLight',            '383838'],
-			['Cat - Matt',				'matt',				'Epic Coder \n(Did Lots of Cool Shit)',											'https://github.com/matt-sudo-jpg',			'444444'], //remember when your username was ron? -Demo Yes never remind me again.. -matt :p i'm sowwy :((( -Demo It Otay :3 me big friend -Matt :p
-			['Jesse_Tails',			'jesse',            'Playtester of the Mod',														'nolink',									'6F00FF'],
-			[''],
-		  //THIS PART OF THE CREDITS IS A W.I.P, WHICH IS WHY THIS PART IS CURRENTLY BLANKED OUT.
-			['Extra Credits'],
-            ['lemz1',				'lemz1',              'Move Window Modchart Code',                                  'https://github.com/lemz1',             'D6D6D6'],
-            ['ItsCapp',				'itscapp',            'Screen Stuff Events and \nMove Arrows Event',                'https://github.com/ItsCapp',           'FF4242'],
-			['BL0KYBL0K',			'missing-icon',       'Shake Arrows Event',                                         'https://github.com/BL0KYBL0K',         'FFFFFF'],
-			['mayo78',				'missing-icon',       'Epic CPU Skin Code',											'https://github.com/Helisonbr',         'FFFFFF'],
-			['Bepixel',				'missing-icon',		  "GF Sprite \n(i was lazy, pls don't kill me -Don)",			'https://gamebanana.com/mods/344784',	'FFFFFF'],
-			['TBiscuit1',			'tbiscuit1',          'Health Drain Event',                                         'https://github.com/TBiscuit1',         '00FFFF'],
-			//['denisyss',          'missing-icon',       'Flash Event',                                                'https://github.com/denisyss',          'FFFFFF'],
-			//['KutikiPlayz',       'missing-icon',                'Note Specific Speed Code',                          'https://github.com/KutikiPlayz',       'FFFFFF'],
-			['AetherLynx',			'lynx',               'Provided Scripts for \nResults Screen & Song Intro Banner',	'https://github.com/AetherLynx',        '7EA82F'],
-			['DEV-idiotXD',			'dev',                'Move Window Event',                                          'https://github.com/DEV-idiotXD',       'FFFFFF'],
-			//['HiroMizuki',        'hiro',               'Pixel Splash Code & Assets',                                 'https://github.com/HiroMizuki',        '3DED02'],
-			['frantastic24',		'missing-icon',       'Fancy HP Bar for losing HP',                                 'https://github.com/frantastic24',      'FFFFFF'],
-			[''],
+			//['Vs Trevor Team'],
+			//['TrevorAnimates',	'trevor',	'Director of the Mod',	'https://youtube.com/c/TrevorAnimates',	'035EFC'],
+			//[''],
+			//Sorry, i'll add credits when i can get everyone's names
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
 			['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',						'https://twitter.com/RiverOaken',		'C30085'],

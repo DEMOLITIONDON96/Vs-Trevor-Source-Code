@@ -49,8 +49,8 @@ class StageData {
 					stage = 'mallEvil';
 				case 'dad-agony':
 					stage = 'stage';
-				case 'experiment-001':
-					stage = 'FrubsVoid';
+				case 'song':
+					stage = 'Bridge';
 				case 'senpai' | 'roses':
 					stage = 'school';
 				case 'thorns':

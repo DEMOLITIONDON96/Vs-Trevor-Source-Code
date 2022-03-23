@@ -13,8 +13,9 @@ class StrumNote extends FlxSprite
 	private var noteData:Int = 0;
 	public var direction:Float = 90;//plan on doing scroll directions soon -bb
 	public var downScroll:Bool = false;//plan on doing scroll directions soon -bb
-	public var sustainReduce:Bool = true;
-	public var doAntialiasing:Bool = ClientPrefs.globalAntialiasing;
+	//public var sustainReduce:Bool = true;
+	//public var doAntialiasing:Bool = ClientPrefs.globalAntialiasing;
+	//Note Skins later????
 	
 	private var player:Int;
 	
@@ -36,7 +37,8 @@ class StrumNote extends FlxSprite
 		super(x, y);
 
 		var skin:String = 'NOTE_assets';
-		switch(char)
+		if(PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1) skin = PlayState.SONG.arrowSkin;
+		/*switch(char)
 		{
 			case 'dad':
 				skin = 'epicUI/DADNOTE_assets';
@@ -52,8 +54,9 @@ class StrumNote extends FlxSprite
 				doAntialiasing = true;
 			default:
 				if(PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1) skin = PlayState.SONG.arrowSkin;
-		}
+		}*/
 		texture = skin; //Load texture and anims
+
 
 		scrollFactor.set();
 	}

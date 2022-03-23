@@ -31,7 +31,7 @@ class PauseSubState extends MusicBeatSubstate
 	var skipTimeText:FlxText;
 	var skipTimeTracker:Alphabet;
 	var curTime:Float = Math.max(0, Conductor.songPosition);
-	//var botplayText:FlxText;
+	var botplayText:FlxText;
 
 	public static var songName:String = '';
 
@@ -82,67 +82,51 @@ class PauseSubState extends MusicBeatSubstate
 		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
 		levelInfo.text += PlayState.SONG.song;
 		levelInfo.scrollFactor.set();
-		levelInfo.setFormat(Paths.font("HelpMe.ttf"), 32);
+		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
 		levelInfo.updateHitbox();
 		add(levelInfo);
 
 		var composerCredit:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
 		switch(PlayState.SONG.song)
 		{
-			case 'Dad Agony':
-			composer = 'By Wulsy';
-			case 'Deep Below':
-			composer = 'By Wulsy';
-			case 'Loverlonding':
-			composer = 'By Wulsy';
-			//case 'Trauma':
-			//composer = 'Insert Composer Name Here';
-			case 'Experiment 001':
-			composer = 'By Wulsy';
+			case 'Blueshirt':
+			composer = 'By Mr. Noob'
 		}
 		composerCredit.text += composer;
 		composerCredit.scrollFactor.set();
-		composerCredit.setFormat(Paths.font('HelpMe.ttf'), 32);
+		composerCredit.setFormat(Paths.font('vcr.ttf'), 32);
 		composerCredit.updateHitbox();
 		add(composerCredit);
 
 		var charterCredit:FlxText = new FlxText(20, 15 + 64, 0, "", 32);
 		switch(PlayState.SONG.song)
 		{
-			case 'Dad Agony':
-			charter = 'Chart by DEMOLITIONDON96';
-			case 'Deep Below':
-			charter = 'Chart by DEMOLITIONDON96';
-			case 'Loverlonding':
-			charter = 'Chart by DEMOLITIONDON96';
-			//case 'Trauma':
-			//charter = 'Chart by <>';
-			case 'Experiment 001':
-			charter = 'Chart by DEMOLITIONDON96';
+			case 'Blueshirt':
+			charter = 'Chart by [UNKNOWN]';
 		}
 		charterCredit.text += charter;
 		charterCredit.scrollFactor.set();
-		charterCredit.setFormat(Paths.font('HelpMe.ttf'), 32);
+		charterCredit.setFormat(Paths.font('vcr.ttf'), 32);
 		charterCredit.updateHitbox();
 		add(charterCredit);
 
 		var levelDifficulty:FlxText = new FlxText(20, 15 + 96, 0, "", 32);
 		levelDifficulty.text += CoolUtil.difficultyString();
 		levelDifficulty.scrollFactor.set();
-		levelDifficulty.setFormat(Paths.font('HelpMe.ttf'), 32);
+		levelDifficulty.setFormat(Paths.font('vcr.ttf'), 32);
 		levelDifficulty.updateHitbox();
 		add(levelDifficulty);
 
 		var blueballedTxt:FlxText = new FlxText(20, 15 + 128, 0, "", 32);
 		blueballedTxt.text = "Blueballed: " + PlayState.deathCounter;
 		blueballedTxt.scrollFactor.set();
-		blueballedTxt.setFormat(Paths.font('HelpMe.ttf'), 32);
+		blueballedTxt.setFormat(Paths.font('vcr.ttf'), 32);
 		blueballedTxt.updateHitbox();
 		add(blueballedTxt);
 
 		practiceText = new FlxText(20, 15 + 162, 0, "PRACTICE MODE", 32);
 		practiceText.scrollFactor.set();
-		practiceText.setFormat(Paths.font('HelpMe.ttf'), 32);
+		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
 		practiceText.x = FlxG.width - (practiceText.width + 20);
 		practiceText.updateHitbox();
 		practiceText.visible = PlayState.instance.practiceMode;
@@ -150,7 +134,7 @@ class PauseSubState extends MusicBeatSubstate
 
 		var chartingText:FlxText = new FlxText(20, 15 + 162, 0, "CHARTING MODE", 32);
 		chartingText.scrollFactor.set();
-		chartingText.setFormat(Paths.font('HelpMe.ttf'), 32);
+		chartingText.setFormat(Paths.font('vcr.ttf'), 32);
 		chartingText.x = FlxG.width - (chartingText.width + 20);
 		chartingText.y = FlxG.height - (chartingText.height + 20);
 		chartingText.updateHitbox();
@@ -313,7 +297,7 @@ class PauseSubState extends MusicBeatSubstate
 					} else {
 						MusicBeatState.switchState(new FreeplayState());
 					}
-					FlxG.sound.playMusic(Paths.music('EnterTheGraveyard'));
+					FlxG.sound.playMusic(Paths.music('freakyMenu'));
 					PlayState.changedDifficulty = false;
 					PlayState.chartingMode = false;
 			}
