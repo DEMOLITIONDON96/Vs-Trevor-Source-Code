@@ -87,6 +87,11 @@ class CreditsState extends MusicBeatState
 			//['TrevorAnimates',	'trevor',	'Director of the Mod',	'https://youtube.com/c/TrevorAnimates',	'035EFC'],
 			//[''],
 			//Sorry, i'll add credits when i can get everyone's names
+			['Fear Engine Team'],
+			['DEMOLITIONDON96',		'demolitiondon96',	'Creator of the Engine',			'https://youtube.com/c/DEMOLITIONDON96',	'03C6FC'],
+			['PrismLight',			'prism',			'Minor Coding',	              'https://github.com/PrismLight',            '383838'],
+			['Cat - Matt',				'matt',				'Epic Coder \n(Did Lots of Cool Shit)',											'https://github.com/matt-sudo-jpg',			'444444'],
+			[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
 			['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',						'https://twitter.com/RiverOaken',		'C30085'],
