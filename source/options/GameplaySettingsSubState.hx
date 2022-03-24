@@ -97,7 +97,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		'If checked, marvelouses rating will appear on the\nJudgment counter and will show\n when hit',
 		'marvelouses',
 		'bool',
-		true); //Default value
+		false); //Default value
 		addOption(option);
 
 		var option:Option = new Option('Hitsound Volume',

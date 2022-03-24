@@ -13,14 +13,13 @@ class ClientPrefs {
 	public static var laneTransparency:Float = 0.5;
 	public static var debugMode:Bool = false;
 	public static var camMove:Bool = true;
-	public static var marvelouses:Bool = true;
+	public static var marvelouses:Bool = false;
 	public static var showFPS:Bool = true;
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
 	public static var lowQuality:Bool = false;
-	public static var framerate:Int = 60;
-	public static var underlayAlpha:Float = 0; //I haven't fully coded this in yet, feel free to do it yourself :)
+	public static var framerate:Int = 240;
 	public static var cursing:Bool = true;
 	public static var violence:Bool = true;
 	public static var camZooms:Bool = true;
@@ -110,7 +109,6 @@ class ClientPrefs {
 		FlxG.save.data.noteSplashes = noteSplashes;
 		FlxG.save.data.lowQuality = lowQuality;
 		FlxG.save.data.framerate = framerate;
-		FlxG.save.data.underlayAlpha = underlayAlpha;
 		//FlxG.save.data.cursing = cursing;
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
@@ -195,9 +193,6 @@ class ClientPrefs {
 				FlxG.drawFramerate = framerate;
 				FlxG.updateFramerate = framerate;
 			}
-		}
-		if(FlxG.save.data.underlayAlpha != null) {
-			underlayAlpha = FlxG.save.data.underlayAlpha;
 		}
 		/*if(FlxG.save.data.cursing != null) {
 			cursing = FlxG.save.data.cursing;
