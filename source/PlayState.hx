@@ -625,10 +625,11 @@ class PlayState extends MusicBeatState
 				var evilSnow:BGSprite = new BGSprite('christmas/evilSnow', -200, 700);
 				add(evilSnow);
 
-			/*case 'Bridge':
-				var map:BGSprite = new BGSprite('funi', 0, 0, 1, 1);
-				add(map);*/
-			//I'm gonna add this later when i get the offsets from Lua
+			case 'Bridge': //Trevor Week
+				var map:BGSprite = new BGSprite('trevorStage/Boardwalk', -350, -260, 1, 1);
+				map.scale.x = 1.5;
+				map.scale.y = 1.5;
+				add(map);
 
 			case 'school': //Week 6 - Senpai, Roses
 				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
