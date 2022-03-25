@@ -83,10 +83,19 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
-			//['Vs Trevor Team'],
-			//['TrevorAnimates',	'trevor',	'Director of the Mod',	'https://youtube.com/c/TrevorAnimates',	'035EFC'],
-			//[''],
-			//Sorry, i'll add credits when i can get everyone's names
+			['Vs Trevor Team'],
+			['TrevorAnimates',	'trevor',	'Director/Animator of the Mod',	'https://youtube.com/c/TrevorAnimates',	'035EFC'],
+			['Endiee',			'end',		'Co-Director of the Mod',		'https://m.youtube.com/channel/UCKCR3--61DawR4MHkPhwWVg',	'FF0015'],
+			['Systematic',		'system',	'Future Remixer',				'https://youtube.com/c/FNFSystematicMUSIC',	'FFBF00'],
+			['KamdobGooberBoy',	'goober',	'Former Charter',				'https://youtube.com/channel/UCC78eUtEzDz_OKYFmmRYGKA',	'AB5A1B'],
+			['DEMOLITIONDON96',		'demolitiondon96',	'Coder for the Mod',			'https://youtube.com/c/DEMOLITIONDON96',	'03C6FC'],
+			['Yami haki',		'yami',		'Charter for the Mod',			'nolink',					'0040FF'],
+			['ev',				'ev',		'Moral Support',				'NOLINK',					'00A814'],
+			['Billion Swing',	'bill',		'Beta BG Artist',				'nolink',					'CCCCCC'],
+			['Conehat',			'cone',		'Composer',						'https://youtube.com/user/jennifernewby81',	'CCCCCC'],
+			['Sera',			'sera',		'Former Coder & Moral Support',	'https://youtube.com/channel/UCHPUUvdeQckpWK31h4aP03Q',	'16CC44'],
+			['VanDrawn',		'van',		'Composer of Last Song \n(Not telling the song name yet lol)',		'https://youtube.com/channel/UCahD-W4iJ2oibnmGyunlz8g',					'E600FF'],
+			[''],
 			['Fear Engine Team'],
 			['DEMOLITIONDON96',		'demolitiondon96',	'Creator of the Engine',			'https://youtube.com/c/DEMOLITIONDON96',	'03C6FC'],
 			['PrismLight',			'prism',			'Minor Coding',	              'https://github.com/PrismLight',            '383838'],
