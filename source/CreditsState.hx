@@ -89,7 +89,7 @@ class CreditsState extends MusicBeatState
 			['Systematic',		'system',	'Future Remixer',				'https://youtube.com/c/FNFSystematicMUSIC',	'FFBF00'],
 			['KamdobGooberBoy',	'goober',	'Former Charter',				'https://youtube.com/channel/UCC78eUtEzDz_OKYFmmRYGKA',	'AB5A1B'],
 			['DEMOLITIONDON96',		'demolitiondon96',	'Coder for the Mod',			'https://youtube.com/c/DEMOLITIONDON96',	'03C6FC'],
-			['Yami haki',		'yami',		'Charter for the Mod',			'nolink',					'0040FF'],
+			['Yami haki',		'yama',		'Charter for the Mod',			'nolink',					'0040FF'],
 			['ev',				'ev',		'Moral Support',				'NOLINK',					'00A814'],
 			['Billion Swing',	'bill',		'Beta BG Artist',				'nolink',					'CCCCCC'],
 			['Conehat',			'cone',		'Composer',						'https://youtube.com/user/jennifernewby81',	'CCCCCC'],
