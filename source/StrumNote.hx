@@ -1,5 +1,6 @@
 package;
 
+import flixel.addons.ui.U;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -36,13 +37,38 @@ class StrumNote extends FlxSprite
 		this.noteData = leData;
 		super(x, y);
 
-		var skin:String = 'NOTE_assets';
+		var skin:String;
+		skin = 'NOTE_assets';
+		
 		if(PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1) skin = PlayState.SONG.arrowSkin;
 		switch(char)
 		{
 			case 'trevor':
 				skin = 'Skins/trevorNOTE_assets';
+			case 'dad':
+				skin = 'Skins/DADNOTE_assets';
 				doAntialiasing = true; //same as before
+			case 'gf' | 'gf-opponent' | 'gf-car' | 'gf-christmas':
+				skin = 'Skins/gfNOTE_assets';
+				doAntialiasing = true;
+			case 'mom' | 'mom-car':
+				skin = 'Skins/MOMNOTE_assets';
+				doAntialiasing = true;
+			case 'parents-christmas':
+				skin = 'Skins/ParentsNOTE_assets';
+				doAntialiasing = true;
+			case 'pico' | 'pico-player':
+				skin = 'Skins/picoNOTE_assets';
+				doAntialiasing = true;
+			case 'monster' | 'monster-christmas':
+				skin = 'Skins/LemonboiNOTE_assets';
+				doAntialiasing = true;
+			case 'spooky':
+				skin = 'Skins/SpookyNOTE_assets';
+				doAntialiasing = true;
+			case 'bf-pixel-opponent':
+				skin = 'Skins/pixelBF-notes';
+				doAntialiasing = false;
 			default:
 				if(PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1) skin = PlayState.SONG.arrowSkin;
 		}

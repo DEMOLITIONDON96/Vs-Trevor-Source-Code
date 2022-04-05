@@ -91,6 +91,12 @@ class PauseSubState extends MusicBeatSubstate
 		{
 			case 'Blueshirt':
 			composer = 'By Mr. Noob';
+			case 'Atrocity':
+			composer = 'By Saster';
+			case 'Tutorial' | 'Bopeebo' | 'Fresh' | 'Dad Battle' | 'Spookeez' | 'South' | 'Pico' | 'Philly Nice' | 'Blammed' | 'Satin Panties' | 'High' | 'Milf' | 'Cocoa' | 'Eggnog' | 'Senpai' | 'Roses' | 'Thorns' | 'Ugh' | 'Guns' | 'Stress':
+			composer = 'By Kawai Sprite';
+			case 'Monster' | 'Winter Horrorland':
+			composer = 'By Kawai Sprite & Bassetfilms';
 		}
 		composerCredit.text += composer;
 		composerCredit.scrollFactor.set();
@@ -103,6 +109,10 @@ class PauseSubState extends MusicBeatSubstate
 		{
 			case 'Blueshirt':
 			charter = 'Chart by [UNKNOWN]';
+			case 'Atrocity':
+			charter = 'Chart by DEMOLITIONDON96';
+			case 'Tutorial' | 'Bopeebo' | 'Fresh' | 'Dad Battle' | 'Spookeez' | 'South' | 'Monster' | 'Pico' | 'Philly Nice' | 'Blammed' | 'Satin Panties' | 'High' | 'Milf' | 'Cocoa' | 'Eggnog' | 'Winter Horrorland' | 'Senpai' | 'Roses' | 'Thorns' | 'Ugh' | 'Guns' | 'Stress':
+			charter = 'Chart by ninjamuffin99';
 		}
 		charterCredit.text += charter;
 		charterCredit.scrollFactor.set();

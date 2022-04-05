@@ -18,6 +18,9 @@ class CoolUtil
 {
 	public static var defaultDifficulties:Array<String> = [
 		'Hard', //0
+		'Hell', //1
+		//lol, no more normal and easy mode B)
+		//'Crazy' (this was meant for remixed versions, but ig this is unused)
 	];
 	public static var defaultDifficulty:String = 'Hard'; //The chart that has no suffix and starting difficulty on Freeplay/Story Mode
 

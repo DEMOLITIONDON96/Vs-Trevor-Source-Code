@@ -70,16 +70,16 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['You Suck!', 0.2], //From 0% to 19%
-		['Shit', 0.4], //From 20% to 39%
+		['Shit...', 0.2], //From 0% to 19%
+		['Terrible', 0.4], //From 20% to 39%
 		['Bad', 0.5], //From 40% to 49%
-		['Bruh', 0.6], //From 50% to 59%
-		['Meh', 0.69], //From 60% to 68%
+		['Meh', 0.6], //From 50% to 59%
+		['Okay', 0.69], //From 60% to 68%
 		['Nice', 0.7], //69%
-		['Good', 0.8], //From 70% to 79%
-		['Great', 0.9], //From 80% to 89%
-		['Sick!', 1], //From 90% to 99%
-		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['Good.', 0.8], //From 70% to 79%
+		['Great!', 0.9], //from 80% to 89%
+		['Sick!!', 1], //From 90% to 99%
+		['Perfect!!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 	
 	//Code by lemz1
@@ -390,8 +390,6 @@ class PlayState extends MusicBeatState
 					curStage = 'mall';
 				case 'winter-horrorland':
 					curStage = 'mallEvil';
-				case 'blueshirt':
-					curStage = 'Bridge';
 				case 'senpai' | 'roses':
 					curStage = 'school';
 				case 'thorns':
@@ -624,12 +622,6 @@ class PlayState extends MusicBeatState
 
 				var evilSnow:BGSprite = new BGSprite('christmas/evilSnow', -200, 700);
 				add(evilSnow);
-
-			case 'Bridge': //Trevor Week
-				var map:BGSprite = new BGSprite('trevorStage/Boardwalk', -350, -260, 1, 1);
-				map.scale.x = 1.5;
-				map.scale.y = 1.5;
-				add(map);
 
 			case 'school': //Week 6 - Senpai, Roses
 				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
@@ -2370,10 +2362,10 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-		/*if (FlxG.keys.justPressed.NINE)
+		if (FlxG.keys.justPressed.NINE)
 		{
 			iconP1.swapOldIcon();
-		}*/
+		}
 
 		callOnLuas('onUpdate', [elapsed]);
 
@@ -2530,9 +2522,9 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		if(ratingName == '?') {
-			scoreTxt.text = 'Health:' + Math.round(health * 50) + "%" + ' ~ Score: ' + songScore + ' ~ Misses: ' + songMisses + ' ~ Rating: ' + ratingName;
+			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
 		} else {
-			scoreTxt.text = 'Health:' + Math.round(health * 50) + "%" + ' ~ Score: ' + songScore + ' ~ Misses: ' + songMisses + ' ~ Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ')' + ' | ' + ratingFC;//peeps wanted no integer rating
 		}
 
 		if(botplayTxt.visible) {
@@ -4010,6 +4002,12 @@ class PlayState extends MusicBeatState
 				note.destroy();
 			}
 		});
+
+		if(daNote.noteType == 'Double Damage')
+			{
+				health -= 0.10;
+			}
+	
 		combo = 0;
 
 		health -= daNote.missHealth * healthLoss;
@@ -4189,29 +4187,36 @@ class PlayState extends MusicBeatState
 
 				switch(note.noteType) {
 
-					/*case 'Shadow Note':
+					case 'Darkness Note':
 						var shadow:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('lurkingShadow'));
 						//shadow.screenCenter();
-						shadow.scale.x = 1.1;
-						shadow.scale.y = 1.1;
 						shadow.cameras = [camHUD];
 						shadow.alpha = 1;
 						add(shadow);
 						//FlxTween.tween(shadow, {alpha: shadow.alpha = 0}, 30, {ease: FlxEase.quadInOut, type: PERSIST});
 						healthDrain = 0.005;
 
-					case 'Hat Note':
+					case 'Instakill Note':
 						if(boyfriend.animation.getByName('hurt') != null) {
 							boyfriend.playAnim('hurt', true);
 							boyfriend.specialAnim = true;
 						}
 						health -= 500;
 
+					case 'Flip Note':
+						new FlxTimer().start(0.01, function(tmr:FlxTimer)
+						{
+								FlxTween.tween(camHUD, {angle: camHUD.angle = 180}, 1, {ease: FlxEase.circInOut, type: PERSIST});
+						});
+
+						new FlxTimer().start(10, function(tmr:FlxTimer)
+							{
+									FlxTween.tween(camHUD, {angle: camHUD.angle = 0}, 1, {ease: FlxEase.circInOut, type: PERSIST});
+							});
+						health -= 0;
+
 					case 'Poison Note':
-						healthDrain = 0.20
-						
-						;*/
-					//Might reuse this?????
+						healthDrain = 0.20;
 
 					case 'Hurt Note': //Hurt note
 						if(boyfriend.animation.getByName('hurt') != null) {
@@ -4778,14 +4783,12 @@ class PlayState extends MusicBeatState
 
 			// Rating FC
 			ratingFC = "";
-			if (marvelouses > 0)
-				ratingFC = "MFC";
-			if (sicks > 0)
-				ratingFC = "SFC";
-			if (goods > 0)
-				ratingFC = "GFC";
-			if (bads > 0 || shits > 0)
-				ratingFC = "FC";
+			if (marvelouses > 0) ratingFC = "MFC";
+			if (sicks > 0) ratingFC = "SFC";
+			if (goods > 0) ratingFC = "GFC";
+			if (bads > 0 || shits > 0) ratingFC = "FC";
+			if (songMisses > 0 && songMisses < 10) ratingFC = "SDCB";
+			else if (songMisses >= 10) ratingFC = "Clear";
 		}
 		setOnLuas('rating', ratingPercent);
 		setOnLuas('ratingName', ratingName);

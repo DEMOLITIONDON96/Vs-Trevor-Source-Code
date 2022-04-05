@@ -27,6 +27,7 @@ class Note extends FlxSprite
 	public var tooLate:Bool = false;
 	public var wasGoodHit:Bool = false;
 	public var ignoreNote:Bool = false;
+	public var noIgnoreNote:Bool = false;
 	public var hitByOpponent:Bool = false;
 	public var noteWasHit:Bool = false;
 	public var prevNote:Note;
@@ -104,27 +105,46 @@ class Note extends FlxSprite
 
 		if(noteData > -1 && noteType != value) {
 			switch(value) {
-				/*case 'Trickster Note':
+				case 'Double Damage': 
+		            noIgnoreNote = mustPress;
+		            reloadNote('DAMAGE');
+		            noteSplashTexture = 'DAMAGEnoteSplashes';
+					if(PlayState.isPixelStage) {
+						noteSplashTexture = 'pixelUI/DAMAGEnoteSplashes';
+					}
+		            colorSwap.hue = 0;
+		            colorSwap.saturation = 0;
+		            colorSwap.brightness = 0;
+				case 'Flip Note':
 					ignoreNote = mustPress;
 					hitCausesMiss = true;
-					reloadNote('TRICKSTER');
-					noteSplashTexture = 'TRICKSTERnoteSplashes';
+					reloadNote('FLIP');
+					noteSplashTexture = 'FLIPnoteSplashes';
+					if(PlayState.isPixelStage) {
+						noteSplashTexture = 'pixelUI/FLIPnoteSplashes';
+					}
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
 					colorSwap.brightness = 0;
-				case 'Shadow Note':
+				case 'Darkness Note':
 					ignoreNote = mustPress;
 					hitCausesMiss = true;
-					reloadNote('SHADOW');
-					noteSplashTexture = 'SHADOWnoteSplashes';
+					reloadNote('DARKNESS');
+					noteSplashTexture = 'DARKNESSnoteSplashes';
+					if(PlayState.isPixelStage) {
+						noteSplashTexture = 'pixelUI/DARKNESSnoteSplashes';
+					}
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
 					colorSwap.brightness = 0;
-				case 'Hat Note':
+				case 'Instakill Note':
 					ignoreNote = mustPress;
 					hitCausesMiss = true;
-					reloadNote('HAT');
-					noteSplashTexture = 'HATnoteSplashes';
+					reloadNote('KILL');
+					noteSplashTexture = 'KILLnoteSplashes';
+					if(PlayState.isPixelStage) {
+						noteSplashTexture = 'pixelUI/KILLnoteSplashes';
+					}
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
 					colorSwap.brightness = 0;
@@ -133,14 +153,19 @@ class Note extends FlxSprite
 					hitCausesMiss = true;
 					reloadNote('POISON');
 					noteSplashTexture = 'POISONnoteSplashes';
+					if(PlayState.isPixelStage) {
+						noteSplashTexture = 'pixelUI/POISONnoteSplashes';
+					}
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
-					colorSwap.brightness = 0;*/
-					//Saving for later
+					colorSwap.brightness = 0;
 				case 'Hurt Note':
 					ignoreNote = mustPress;
 					reloadNote('HURT');
 					noteSplashTexture = 'HURTnoteSplashes';
+					if(PlayState.isPixelStage) {
+						noteSplashTexture = 'pixelUI/HURTnoteSplashes';
+					}
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
 					colorSwap.brightness = 0;
@@ -180,9 +205,30 @@ class Note extends FlxSprite
 
 		switch(char.toLowerCase())
 		{
-			case 'trevor':
-				skin = 'Skins/trevorNOTE_assets';
-				antialias = true; //if ur note texture is pixel set this to false, otherwise delete this line
+			case 'dad':
+				skin = 'Skins/DADNOTE_assets';
+				antialias = true; //same as before
+			case 'gf' | 'gf-opponent' | 'gf-car' | 'gf-christmas':
+				skin = 'Skins/gfNOTE_assets';
+				antialias = true;
+			case 'mom' | 'mom-car':
+				skin = 'Skins/MOMNOTE_assets';
+				antialias = true;
+			case 'parents-christmas':
+				skin = 'Skins/ParentsNOTE_assets';
+				antialias = true;
+			case 'pico' | 'pico-player':
+				skin = 'Skins/picoNOTE_assets';
+				antialias = true;
+			case 'monster' | 'monster-christmas':
+				skin = 'Skins/LemonboiNOTE_assets';
+				antialias = true;
+			case 'spooky':
+				skin = 'Skins/SpookyNOTE_assets';
+				antialias = true;
+			case 'bf-pixel-opponent':
+				skin = 'Skins/pixelBF-notes';
+				antialias = false;
 		}
 		//saving it :)
 		x += (ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
@@ -297,10 +343,7 @@ class Note extends FlxSprite
 		
 		var skin:String = texture;
 		if(texture.length < 1) {
-			skin = PlayState.SONG.arrowSkin;
-			if(skin == null || skin.length < 1) {
-				skin = 'NOTE_assets';
-			}
+			skin = 'NOTE_assets';
 		}
 
 		var animName:String = null;

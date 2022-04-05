@@ -60,11 +60,12 @@ class ChartingState extends MusicBeatState
 		'',
 		'Alt Animation',
 		'Hey!',
-		//'Poison Note',
-		//'Hat Note',
-		//'Shadow Note',
+		'Double Damage',
+		'Poison Note',
+		'Instakill Note',
+		'Darkness Note',
 		'Hurt Note',
-		//'Trickster Note',
+		'Flip Note',
 		'GF Sing',
 		'No Animation'
 	];
